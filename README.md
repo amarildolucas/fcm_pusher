@@ -55,17 +55,12 @@ pusher.send("Brazil vs German", "You see the 1 - 7 result in the game???", nil, 
 
 ## Describing attributes
 
-**title:** the title in push notification.
-
-**body:** the text description.
-
-**icon:** the app icon.
-
-**sound:** the emited sound in device when notification is delivered.
-
-**badge:** an integer number that appear counting the number of the notifications in the app icon in the device. 
-
-**priority:** the priority that the message should be sended.
+* **title:** the title in push notification.
+* **body:** the text description.
+* **icon:** the app icon.
+* **sound:** the emited sound in device when notification is delivered.
+* **badge:** an integer number that appear counting the number of the notifications in the app icon in the device. 
+* **priority:** the priority that the message should be sended.
 
 # .env file
 A Ruby gem to load environment variables from `.env`. You can learn more about the dotenv gem here. You use it before 
@@ -73,11 +68,11 @@ to assign your api key from Firebase Cloud Messaging.
 
 # Contributing
 
-Fork it
-Create your feature branch (git checkout -b my-new-feature)
-Commit your changes (git commit -am 'Added some feature')
-Push to the branch (git push origin my-new-feature)
-Create new Pull Request
+* Fork it
+* Create your feature branch (git checkout -b my-new-feature)
+* Commit your changes (git commit -am 'Added some feature')
+* Push to the branch (git push origin my-new-feature)
+* Create new Pull Request
 
 If you want a better idea of how fcm_pusher works, contact me at **vmarildo@gmail.com**
 

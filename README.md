@@ -56,10 +56,15 @@ pusher.send("Brazil vs German", "You see the 1 - 7 result in the game???", nil, 
 ## Describing attributes
 
 **title:** the title in push notification.
+
 **body:** the text description.
+
 **icon:** the app icon.
+
 **sound:** the emited sound in device when notification is delivered.
+
 **badge:** an integer number that appear counting the number of the notifications in the app icon in the device. 
+
 **priority:** the priority that the message should be sended.
 
 # .env file

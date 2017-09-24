@@ -51,7 +51,7 @@ After the object initialization send notification is *super* easy. You need to c
 pusher.send_once("aJMeAofB0TQ:APA91b...NfC-VfMcSEk", "Brazil vs German", "You see the 1 - 7 result in the game???", { badge: 1, priority: FcmPusher::Priority::HIGH })
 ```
 ```ruby
-pusher.send_all([aJMeAofB0TQ:APA91b...NfC-VfMcSEk], "Brazil vs German", "You see the 1 - 7 result in the game???", { badge: 1, priority: FcmPusher::Priority::HIGH })
+pusher.send_all(["aJMeAofB0TQ:APA91b...NfC-VfMcSEk", "zKMeAofB0TQ:APA91b...NfC-VfMcSEk"], "Brazil vs German", "You see the 1 - 7 result in the game???", { badge: 1, priority: FcmPusher::Priority::HIGH })
 ```
 
 We recommend use `pusher.send_all` even if you are sending a notification to only one user. Just pass an array with the fcm tokens that you desire to send your notifications.

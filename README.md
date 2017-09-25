@@ -30,7 +30,7 @@ require 'fcm_pusher'
 # Usage
 
 ## Pre-requisites
-Add your application configuration to your `.env` file in the root of your project:
+We recommend to use the `dotenv` gem to add your application configuration to your `.env` file in the root of your project:
 ```
 export FCM_API_KEY=your_api_key_from_firebase_cloud_messaging
 ```
@@ -39,7 +39,7 @@ To get your Firebase Cloud Messaging **API KEY** go to you Firebase Console, Pro
 ## Initialize
 Everything starts with the object initialization.
 ```ruby
-pusher = FcmPusher.new
+pusher = FcmPusher.new("fcm_api_key")
 ```
 The initializer will create an instance of the object with the attribute `priority` initialized with `FcmPusher::Priority::HIGH` by default. You can change this value according to your apps requirements by using `FcmPusher::Priority::NORMAL`. 
 

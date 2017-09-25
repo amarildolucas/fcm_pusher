@@ -34,8 +34,7 @@ Add your application configuration to your `.env` file in the root of your proje
 ```
 export FCM_API_KEY=your_api_key_from_firebase_cloud_messaging
 ```
-To get your Firebase Cloud Messaging **API KEY** go to you Firebase Console, Project configurations, Cloud messaging and
-**copy the Server Key**. Then assign it to `FCM_API_KEY` inside the .env file.
+To get your Firebase Cloud Messaging **API KEY** go to you Firebase Console, Project configurations, Cloud messaging and **copy the Server Key**. Then assign it to `FCM_API_KEY` inside the .env file.
 
 ## Initialize
 Everything starts with the object initialization.
@@ -44,28 +43,29 @@ pusher = FcmPusher.new
 ```
 The initializer will create an instance of the object with the attribute `priority` initialized with `FcmPusher::Priority::HIGH` by default. You can change this value according to your apps requirements by using `FcmPusher::Priority::NORMAL`. 
 
-## Send
-After the object initialization send notification is *super* easy. You need to call the send_once method or send_all only and pass the respective data as parameters:
+## Send 
+After the object initialization send notification is *super* easy. You need to call the `send_once` method or `send_all` only and pass the respective data as params:
+
 ```ruby
 pusher.send_once("aJMeAofB0TQ:APA91b...NfC-VfMcSEk", "Brazil vs German", "You see the 1 - 7 result in the game???", { badge: 1, priority: FcmPusher::Priority::HIGH })
 ```
 ```ruby
 pusher.send_all(["aJMeAofB0TQ:APA91b...NfC-VfMcSEk", "zKMeAofB0TQ:APA91b...NfC-VfMcSEk"], "Brazil vs German", "You see the 1 - 7 result in the game???", { badge: 1, priority: FcmPusher::Priority::HIGH })
 ```
-
-We recommend using `pusher.send_all` even if you are sending a notification to a single user. Just pass an array with the fcm tokens that you desire to send your notifications.
+We recommend use `send_all` even if you are sending a notification to only one user. Just pass an array with the fcm tokens that you desire to send your notifications.
 
 ## Describing attributes
-The `send_one` and `send_all` methods have simillar attributes. The only difference is that with the `send_one` the first parameter is `to` and you pass as argument any unique **FCM_TOKEN** to be sent only once. Use the `send_all` when you need `registration_ids` as parameter an pass an array of **FCM_TOKENS**. The **title** and **body** parameters are always required too. Optional parameters are **icon, badge, sound** and **priority**.
+The `send_one` and `send_all` methods have simillary attributes. The only difference is that with the `send_once` the first parameter is `to` and you pass as argument any unique **FCM_TOKEN** to be sended only once. Use the `send_all` when you need `registration_ids` as parameter and pass an array of **FCM_TOKENS**. The **title** and **body** parameters are always required too. Optional parameters are **icon, badge, sound** and **priority**.
 
 * **to**: This parameter specifies the recipient of a message.
 * **registration_ids**: This parameter specifies the recipient of a multi-cast message, or a message sent to more than one registration token.
 * **title:** the title of the notification.
 * **body:** the text of the notification.
 * **icon:** the app icon.
-* **sound:** the emitted sound in device when notification is delivered.
-* **badge:** an integer that appears counting the number of the notifications in the app icon in the device.
-* **priority:** Sets the message priority. Valid values are "normal" and "high". In iOS, they correspond to priorities 5  10 of APNs.
+
+* **sound:** the emited sound in device when notification is delivered.
+* **badge:** an integer number that appear counting the number of the notifications in the app icon in the device. 
+* **priority:** Sets the message priority. Valid values are `FcmPusher::Priority::NORMAL` and `FcmPusher::Priority::HIGH`. In iOS, they correspond to priorities 5 and 10 of APNs.
 
 # `.env` file
 A Ruby gem to load environment variables from `.env`. You can learn more about the dotenv gem here. It's important to use it before assigning your api key from Firebase Cloud Messaging.
